@@ -1,0 +1,516 @@
+/*
+Name:	Calin Doran | Student #: C00220175
+Lab #:	Lab02		| Date: 03-10-2018
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int question1() //Q1 program to read and print elements of array of 10 ints.
+{
+	const int len = 10;
+	int arr[10];
+	
+	cout << "Enter 10 intagers: " << endl;
+	
+	for (int i = 0; i < len; i++)
+	{
+		cin >> arr[i];
+	}
+	cout << "Numbers entered are: " << endl;
+
+	for (int i = 0; i < len; i++)
+	{
+		cout << arr[i] << endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question2() //Q2 program to print all negative elements in the above array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,-4,-5,6,7,8,-9,10 };
+
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] < 0)
+		{
+			cout << "Negative number found: " << arr[i] << endl;
+		}
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question3() //Q3 program to search an element in an array and prints out the index where it was found
+				//and -1 if it was not found.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int i;
+	int search;
+	bool found = false;
+	
+	cout << "Enter an int to search: " << endl;
+	cin >> search;
+
+	for (i = 0; i < len; i++)
+	{
+		if (arr[i] == search)
+		{
+			found = true;
+			break;
+		}
+	}
+	
+	if (found)
+	{
+		cout << "Number found at index: " << i << endl;
+	}
+	else
+	{
+		cout << "Number not found.." << endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question4() //Q4 program to find maximum and minimum element in an array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int min, max;
+
+	max = min = arr[0];
+
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+	}
+	cout << "The max is: " << max << endl;
+	cout << "The min is: " << min << endl;
+
+	system("pause");
+	return 0;
+}
+
+int question5() //Q5 program to find second largest element in an array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int largest, second;
+
+	if (arr[0] < arr[1])
+	{
+		largest = arr[1];
+		second = arr[0];
+	}
+	else
+	{
+		largest = arr[0];
+		second = arr[1];
+	}
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i]>largest)
+		{
+			second = largest;
+			largest = arr[i];
+		}
+		else if(arr[i] > second && arr[i] != largest)
+		{
+			second = arr[i];
+		}
+	}
+	cout << "Second highest is: " << second << endl;
+
+	system("pause");
+	return 0;
+}
+
+int question6() //Q6 program to count total number of even and odd elements in an array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int even = 0, odd = 0;
+
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] & 1 == 1)
+		{
+			odd++;
+		}
+		else
+		{
+			even++;
+		}
+	}
+	cout << "Number of even nums: " << even << "\nNumber of odd nums: " << odd << endl;
+
+	system("pause");
+	return 0;
+}
+
+int question7() //Q7 program to copy all elements from an array to another array. The arrays are each of size 20.
+{
+	const int len = 20;
+	int arr1[20] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+	int arr2[20];
+
+	for (int i = 0; i < len; i++)
+	{
+		arr2[i] = arr1[i];
+		cout << "Array two elements: " << arr2[i] << endl;
+	}
+	system("pause");
+	return 0;
+}
+
+int quesion8()	//Q8 program to insert an element in an array of size 12 at a specified position. 
+{
+	const int len = 12;
+	int arr[12] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+	int count = 12;
+	int incert;
+	int element;
+
+	cout << "Enter number you would like to incert into array: " << endl;
+	cin >> element;
+
+	cout << "Enter position you would like to incert it (0-11): " << endl;
+	cin >> incert;
+
+	for (int i = count++; i > incert; i--)
+	{
+		arr[i] = arr[i - 1];
+	}
+	arr[incert] = element;
+	count--;
+
+	cout << "Array with element incerted: ";
+
+	for (int i = 0; i < len; i++)
+	{
+		cout <<" "<<arr[i];
+	}
+
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
+int question9() //Q9 program to delete an element from an array of size 12 at specified position.
+{
+	const int len = 12;
+	int arr[12] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+	int count = 12;
+	int delPos;
+
+	cout << "Chose element you would like to delete from array at position (0-11): " << endl;
+	cin >> delPos;
+
+	for (int i = delPos-1; i < count; i++)
+	{
+		arr[i] = arr[i + 1];
+	}
+	count--;
+
+	cout << "Array after deletion: ";
+
+	for (int i = 0; i < count; i++)
+	{
+		cout << " " << arr[i];
+	}
+
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
+int question10() //Q10 program to count frequency of each element in an array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,2,2,3,3,4,5,6,6 };
+	int found = 0, count = 1;
+
+	for (int i = 0; i < len; i++)
+	{
+
+		for (int j = 0; j < len; j++)
+		{
+			if (arr[i] == arr[j]) found++;
+		}
+
+		if (found == 0)
+		{
+			count;
+
+			for (int j = i + 1; j < len; j++)
+			{
+				if (arr[i] == arr[j]) count++;
+			}
+			cout << arr[i] << ":" << count << endl;
+		}
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question11() //Q11 program to count total number of duplicate elements in an array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,2,4,5,6,6,8,9,10 };
+	int count = 0;
+
+	for (int i = 0; i < len; i++)
+	{
+		for (int j = i+1; j < len; j++)
+		{
+			if (arr[i] == arr[j])
+			{
+				count++;
+				break;
+			}
+		}
+	}
+
+	cout << "Total number of duplicates: " << count << endl;
+	system("pause");
+	return 0;
+}
+
+int question12() //Q12 program to find reverse of an array. You must only declare and use 1 array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int rev, temp, x;
+
+	for (x = 0; x < len; x++)
+	{
+		cout << arr[x] << endl;
+	}
+	rev = x - 1;
+	x = 0;
+
+	while (x < rev)
+	{
+		temp = arr[x];
+		arr[x] = arr[rev];
+		arr[rev] = temp;
+		x++;
+		rev--;
+	}
+
+	for  (x = 0; x < len; x++)
+	{
+		cout << arr[x] << endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question13() //Q13 program to left rotate an array by one position. first element is rotated to the end of the array.
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int temp, i;
+
+	cout << "Array before rotation: ";
+	for (i = 0; i < len; i++)
+	{
+		cout << " " << arr[i];
+	}
+
+	temp = arr[0];
+	for (i = 0; i < len - 1; i++)
+	{
+		arr[i] = arr[i + 1];
+	}
+	arr[10 - 1] = temp;
+	
+	cout << endl << "Array after rotation: ";
+	for (i = 0; i < len; i++) 
+	{
+		cout << ' ' << arr[i];
+	}
+
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
+int question14() //Q14
+{
+	const int len = 10;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int product, test;
+
+	cout << "Enter number to test product againest: " << endl;
+	cin >> test;
+
+	for (int i = 0; i < len; i++)
+	{
+		for (int j = i + 1; j < len; j++)
+		{
+			product = arr[i] * arr[j];
+
+			if (product == test)
+			{
+				cout << "Pair of elements for " << test << " are " << arr[i] << " * " << arr[j] << endl;
+			}
+		}
+	}
+
+	system("pause");
+	return 0;
+}
+
+int question15() //Q15
+{
+	const int len = 30;
+	char userArr[len];// = { " dd  3  f4  fff    ff2    dd " };
+	int x, charCount = 0;
+	int wordCount = 0;
+
+	cout << "Write a sentance: " << endl;
+	cin.ignore();
+	cin.getline(userArr, len);
+
+	do
+	{
+		for (x = 0; x < len; x++)
+		{
+			if (userArr[x] != ' ')
+			{
+				if (userArr[x] == '\0')
+				{
+					break;
+				}
+				charCount++;
+			}
+			else if (userArr[x] >= 65 && userArr[x] <= 90 || userArr[x] >= 97 && userArr[x] <= 122)
+			{
+				wordCount++;
+			}
+		}
+	} while (userArr[x] != '\0');
+
+	cout << "Num of chars in array: " << charCount << endl;
+	cout << "Num of words: " << wordCount << endl;
+	system("pause");
+	return 0;
+}
+
+int main()
+{
+	int x;
+	
+	do
+	{
+		cout << "Enter (1-15) for question test, (0) to exit." << endl;
+		cin >> x;
+
+		switch (x)
+		{
+		case 1:
+		{
+			question1();
+			break;
+		}
+		case 2:
+		{
+			question2();
+			break;
+		}
+		case 3:
+		{
+			question3();
+			break;
+		}
+		case 4:
+		{
+			question4();
+			break;
+		}
+		case 5:
+		{
+			question5();
+			break;
+		}
+		case 6:
+		{
+			question6();
+			break;
+		}
+		case 7:
+		{
+			question7();
+			break;
+		}
+		case 8:
+		{
+			quesion8();
+			break;
+		}
+		case 9:
+		{
+			question9();
+			break;
+		}
+		case 10:
+		{
+			question10();
+			break;
+		}
+		case 11:
+		{
+			question11();
+			break;
+		}
+		case 12:
+		{
+			question12();
+			break;
+		}
+		case 13:
+		{
+			question13();
+			break;
+		}
+		case 14:
+		{
+			question14();
+			break;
+		}
+		case 15:
+		{
+			question15();
+			break;
+		}
+		case 0:
+		{
+			exit(0);
+		}
+		default:
+		{
+			cout << "Invalid, pick another.." << endl;
+		}
+		}
+	} while (x != 0);
+	cin.get();
+	return 0;
+}

@@ -1,0 +1,5 @@
+﻿  Main.cpp
+c:\users\calin\dropbox\college\year three\advanced programming\work\class-sfml\src\main.cpp(36): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\calin\dropbox\college\year three\advanced programming\work\class-sfml\src\main.cpp(40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\calin\dropbox\college\year three\advanced programming\work\class-sfml\src\main.cpp(111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Class-SFML.vcxproj -> C:\Users\calin\Dropbox\College\Year Three\Advanced Programming\Work\Class-SFML\Debug\Class-SFML.exe
